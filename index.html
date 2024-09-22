@@ -5,7 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
 </head>
+<style>
+    button{
+        width: 100%;
+    }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+</style>
 <body>
-    
+    <main>
+        <table border="1" style="width:100%">
+            <tr>
+                <td colspan="3" ><input  id="inputid" type="text" ></td>
+                <td><button type="button" onclick="clean()">CL</button></td>
+            </tr>
+            <tr>
+                <td><button type="button" onclick="display('1')">1</button></td>
+                <td><button type="button" onclick="display('2')">2</button></td>
+                <td><button type="button" onclick="display('3')">3</button></td>
+                <td><button type="button" onclick="display('+')">+</button></td>
+            </tr>
+            <tr>
+                <td><button type="button" onclick="display('4')">4</button></td>
+                <td><button type="button" onclick="display('5')">5</button></td>
+                <td><button type="button" onclick="display('6')">6</button></td>
+                <td><button type="button" onclick="display('-')">-</button></td>
+            </tr>
+            <tr>
+                <td><button type="button" onclick="display('7')">7</button></td>
+                <td><button type="button" onclick="display('8')">8</button></td>
+                <td><button type="button" onclick="display('9')">9</button></td>
+                <td><button type="button" onclick="display('*')">*</button></td>
+            </tr>
+            <tr>
+                <td><button type="button" onclick="display('0')">0</button></td>
+                <td><button type="button" onclick="display('.')">.</button></td>
+                <td><button type="button" onclick="solve()">=</button></td>
+                <td><button type="button" onclick="display('/')">/</button></td>
+            </tr>
+        </table>
+    </main>
+    <script>
+        solve = () => {
+            let x = document.getElementById("inputid").value;
+            let y = eval(x)
+            return document.getElementById("inputid").value = y;
+        }
+        display = (x) =>{
+           document.getElementById("inputid").value += x;
+        }
+        clean = () => {
+            document.getElementById("inputid").value = "";
+        }
+    </script>
 </body>
 </html>
